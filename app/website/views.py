@@ -75,7 +75,7 @@ def login():
         user = User.query.filter_by(name=user_name).first()
 
         if user is not None:
-            if check_password_hash(user.password, user_login.password.data):
+            if check_password_hash(user.password_hash, user_login.password.data):
                 login_user(user)
 
                 return redirect(url_for("main.admin"))
