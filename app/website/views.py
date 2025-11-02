@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash
 from app.website.models import Events, User
-from app.website.forms import EventForm, LoginForm
+from app.website.forms import EventForm, LoginForm, RegisterForm
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin, login_user, LoginManager, login_required, current_user, logout_user
 from app.website import db
@@ -40,7 +40,6 @@ def contact():
 
 @mainbp.route('/register', methods=['GET', 'POST'])
 def register():
-    from forms import RegisterForm
     register_form = RegisterForm()
     
     if register_form.validate_on_submit():
