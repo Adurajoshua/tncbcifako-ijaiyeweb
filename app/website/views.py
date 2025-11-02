@@ -38,6 +38,34 @@ def contact():
 
 # ---------------------------- ADMIN -------------------------------------#
 
+@mainbp.route('/register', methods=['GET', 'POST'])
+def register():
+    from forms import RegisterForm
+    register_form = RegisterForm()
+    
+    if register_form.validate_on_submit():
+        user_name = register_form.user_name.data.lower()
+        email = register_form.email.data
+        password = register_form.password.data
+        
+        # Check if user already exists
+        existing_user = User.query.filter_by(name=user_name).first()
+        if existing_user:
+            flash("Username already exists, please try another one.")
+            return redirect(url_for('main.register'))
+        
+        # Create new user with hashed password
+        hashed_password = generate_password_hash(password)
+        new_user = User(name=user_name, password_hash=hashed_password, email_id=email)
+        
+        db.session.add(new_user)
+        db.session.commit()
+        
+        flash("Registration successful! Please login.")
+        return redirect(url_for('main.login'))
+    
+    return render_template('register.html', form=register_form)
+
 
 @mainbp.route('/login', methods=['GET', 'POST'])
 def login():
