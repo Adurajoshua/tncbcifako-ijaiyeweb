@@ -188,11 +188,11 @@
 
     <!-- series
     ================================================== -->
-    <section class="s-series" id="worship-section">
+    <section class="s-series">
 
         <div class="series-img" style="background-image: url('images/series-2000.jpg');"></div>
 
-        <div class="row row-y-center series-content">
+        <div class="row row-y-center series-content" id="worship-section" >
 
             <div class="column large-half medium-full">
                 <h3 class="subhead">Current Series</h3>
@@ -207,12 +207,13 @@
 
             <div class="column large-half medium-full">
                 <div class="series-content__buttons">
-                    <iframe width="100%" height="500"
-                      src="https://www.youtube.com/embed/live_stream?channel=UCACyJw_Amn34mmY3DP0gIsw"
-                          frameborder="0"
-                          allow="autoplay; encrypted-media; picture-in-picture"
-                          allowfullscreen>
-                            </iframe>
+                    <div id="live-box" style="width:100%; max-width:900px; margin:auto;">
+                    <img id="offline-img" 
+                     src="../static/images/offline.jpg.png" 
+                     alt="We are currently offline"
+                     style="width:100%; height:500px; object-fit:cover; border-radius:10px;">
+                        </div>
+
 
 
                     <a href="" class="btn btn--large h-full-width">Watch Past Services</a>
