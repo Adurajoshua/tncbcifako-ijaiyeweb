@@ -113,6 +113,24 @@
 
     };
 
+    /* Script that replaces it with the iframe when LIVE
+    * ------------------------------------------------------ */
+const channelID = "UCACyJw_Amn34mmY3DP0gIsw";
+const liveURL = `https://www.youtube.com/embed/live_stream?channel=${channelID}`;
+
+fetch(liveURL, { method: 'HEAD' })
+    .then(response => {
+        if (response.ok) {
+            document.getElementById("live-box").innerHTML =
+            `<iframe width="100%" height="500"
+                src="${liveURL}"
+                frameborder="0"
+                allow="autoplay; encrypted-media; picture-in-picture"
+                allowfullscreen>
+             </iframe>`;
+        }
+    })
+    .catch(err => console.log("Live check error:", err));
 
    /* Back to Top
     * ------------------------------------------------------ */
