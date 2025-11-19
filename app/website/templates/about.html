@@ -5,7 +5,7 @@
     <!--- basic page needs
     ================================================== -->
     <meta charset="utf-8">
-    <title>TNCBC Agege - About</title>
+    <title>TNCBC Ifako-Ijaiye - About</title>
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -231,29 +231,30 @@
             <div class="column">
                 <ul class="social-list">
                     <li class="social-list__item">
-                        <a href="#0" title="">
+                        <a href="https://www.facebook.com/TNCBCMEDIA" title="">
                             <span class="social-list__icon social-list__icon--facebook"></span>
                             <span class="social-list__text">Facebook</span>
                         </a>
                     </li>
                     <li class="social-list__item">
-                        <a href="#0" title="">
+                        <a href="https://x.com/TNCBCAgege" title="">
                             <span class="social-list__icon social-list__icon--twitter"></span>
                             <span class="social-list__text">Twitter</span>
                         </a>
                     </li>
                     <li class="social-list__item">
-                        <a href="#0" title="">
+                        <a href="https://www.instagram.com/tncbcagegelagos" title="">
                             <span class="social-list__icon social-list__icon--instagram"></span>
                             <span class="social-list__text">Instagram</span>
                         </a>
                     </li>
                     <li class="social-list__item">
-                        <a href="#0" title="">
+                        <a href="mailto:sectncbc@yahoo.com" title="">
                             <span class="social-list__icon social-list__icon--email"></span>
                             <span class="social-list__text">Email</span>
                         </a>
                     </li>
+
                 </ul>
             </div>
         </div> <!-- end social-content -->
@@ -273,7 +274,7 @@
                     </a>
                 </div>  <!-- footer-logo -->
                 <p style="text-align: justify">
-                The New Covenant Baptist Church, Agege (TNCBC), is a divine planting— a wholly righteous seed sown,
+                The New Covenant Baptist Church, Ifako-Ijaiye (TNCBC), is a divine planting— a wholly righteous seed sown,
                     nurtured, and pruned by the hand of God.
                 </p>
             </div>
@@ -294,9 +295,11 @@
                     <div class="column large-5 medium-full">
                         <h4 class="h6">Quick Links</h4>
                         <ul class="footer-list">
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="about.html">About</a></li>
-                            <li><a href="contact.html">Contact</a></li>
+                            <li><a href="{{ url_for('main.home') }}" title="Home">Home</a></li>
+                            <li class="current"><a href="{{ url_for('main.about') }}" title="About">About</a></li>
+                            <li><a href="{{ url_for('main.events') }}" title="Services">Events</a></li>
+                            <li><a href="{{ url_for('main.contact') }}" title="Contact us">Contact</a></li>	
+                            <li><a href="{{ url_for('main.prayer-requests') }}" title="Prayer Requests">Prayer Requests</a></li>
                         </ul>
                     </div>
                 </div>
@@ -306,7 +309,7 @@
         <div class="row footer-bottom">
             <div class="column ss-copyright">
                 <span>© Copyright </span>
-                <span>Design by <a href="https://www.styleshout.com/">TNCBC Agege Media</a></span>
+                <span>Design by <a href="https://www.styleshout.com/">TNCBC Ifako-Ijaiye Media</a></span>
             </div>
         </div> <!-- footer-bottom -->
 
