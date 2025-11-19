@@ -56,10 +56,11 @@
 
         <nav class="header-nav-wrap">
             <ul class="header-nav">
-                <li><a href="index.html" title="Home">Home</a></li>
-                <li><a href="about.html" title="About">About</a></li>
-                <li class="current"><a href="events.html" title="Services">Events</a></li>
-                <li><a href="contact.html" title="Contact us">Contact</a></li>	
+                 <li><a href="{{ url_for('main.home') }}" title="Home">Home</a></li>
+                <li><a href="{{ url_for('main.about') }}" title="About">About</a></li>
+                <li><a href="{{ url_for('main.events') }}" title="Services">Events</a></li>
+                <li><a href="{{ url_for('main.contact') }}" title="Contact us">Contact</a></li>	
+                <li class="current"><a href="{{ url_for('main.prayer-requests') }}" title="Prayer Requests">Prayer Requests</a></li>
             </ul>
         </nav>
 
@@ -75,7 +76,7 @@
         <div class="gradient-overlay"></div>
         <div class="row page-header__content">
             <div class="column">
-                <h1>Upcoming Events</h1>
+                <h1>PRAYER REQUESTS</h1>
             </div>
         </div>
 
@@ -186,10 +187,9 @@
                         <img src="images/logo.svg" alt="Homepage">
                     </a>
                 </div>  <!-- footer-logo -->
-                <p>
-                Laborum ad explicabo. Molestiae voluptates est. Quisquam labore tenetur 
-                et assumenda voluptatibus a beatae. Rerum odio ducimus reprehenderit 
-                sit animi laborum nostrum dolorum animi voluptates est voluptatibus a beatae. 
+                <p style="text-align: justify">
+                The New Covenant Baptist Church, Ifako-Ijaiye (TNCBC), is a divine planting— a wholly righteous seed sown,
+                    nurtured and pruned by the hand of God.
                 </p>
             </div>
             <div class="column large-half tab-full">
@@ -197,24 +197,23 @@
                     <div class="column large-7 medium-full">
                         <h4 class="h6">Our Location</h4>
                         <p>
-                        1600 Amphitheatre Parkway <br>
-                        Mountain View, California <br>
-                        94043 US
+                        The New Covenant Baptist Church,<br>
+                        Ijaiye Low-Cost Housing Estate 
+                        (near Pen Cinema), Ifako-Ijaiye, Lagos.
                         </p>
         
                         <p>
-                        <a href="https://goo.gl/maps/bc7C7eYtSmnNs6216" target="_blank" class="btn btn--footer">Get Direction</a>
+                        <a href="https://maps.app.goo.gl/j3Kas3yQrZS6qB686" target="_blank" class="btn btn--footer">Get Direction</a>
                         </p>
                     </div>
                     <div class="column large-5 medium-full">
                         <h4 class="h6">Quick Links</h4>
                         <ul class="footer-list">
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="about.html">About</a></li>
-                            <li><a href="volunteer.html">Volunteer</a></li>
-                            <li><a href="connect-group.html">Connect Groups</a></li>
-                            <li><a href="events.html">Upcoming Events</a></li>
-                            <li><a href="contact.html">Contact</a></li>
+                            <li><a href="{{ url_for('main.home') }}" title="Home">Home</a></li>
+                <li><a href="{{ url_for('main.about') }}" title="About">About</a></li>
+                <li><a href="{{ url_for('main.events') }}" title="Services">Events</a></li>
+                <li><a href="{{ url_for('main.contact') }}" title="Contact us">Contact</a></li>	
+                <li class="current"><a href="{{ url_for('main.prayer-requests') }}" title="Prayer Requests">Prayer Requests</a></li>
                         </ul>
                     </div>
                 </div>
@@ -223,8 +222,8 @@
 
         <div class="row footer-bottom">
             <div class="column ss-copyright">
-                <span>© Copyright Hesed 2019</span> 
-                <span>Design by <a href="https://www.styleshout.com/">StyleShout</a></span>
+                <span>© Copyright </span>
+                <span>Design by <a href="https://www.styleshout.com/">TNCBC Ifako-Ijaiye Media</a></span>
             </div>
         </div> <!-- footer-bottom -->
 
