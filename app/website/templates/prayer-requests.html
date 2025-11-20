@@ -60,7 +60,7 @@
                 <li><a href="{{ url_for('main.about') }}" title="About">About</a></li>
                 <li><a href="{{ url_for('main.events') }}" title="Services">Events</a></li>
                 <li><a href="{{ url_for('main.contact') }}" title="Contact us">Contact</a></li>	
-                <li class="current"><a href="{{ url_for('main.prayer-requests') }}" title="Prayer Requests">Prayer Requests</a></li>
+                <li class="current"><a href="{{ url_for('main.prayer_requests') }}" title="Prayer Requests">Prayer Requests</a></li>
             </ul>
         </nav>
 
@@ -100,35 +100,35 @@
                 <div class="event-content">
 
                     <div class="event-title">
-                        <h2 class="display-1">2019 Kids Church Camp</h2>
+                        <h2 class="display-1">Submit your 'Prayer Request' and let's join you in prayers.</h2>
                     </div>
 
-                    <p>
-                    A placeat dolorem quia explicabo nisi enim. Voluptatem sit 
-                    voluptatem molestiae et dolores. Hic saepe id quis perspiciatis. 
-                    Est error tenetur est facere est atque possimus est iste.
-                    Sequi et iure delectus ut tempore soluta nihil. Voluptatem enim 
-                    possimus ipsum perspiciatis sunt. Corporis quo expedita ut odio 
-                    ducimus at debitis nobis dolorum. Hic saepe id quis perspiciatis.
-                    Fugit placeat qui tenetur aperiam deleniti hic.
-                    </p>
+                  
+                <form name="contactForm" id="contactForm" method="post" action="" autocomplete="off">
+                    <fieldset>
 
-                    <p>
-                    Nesciunt eius aspernatur. Veniam deleniti iusto est corrupti voluptatem 
-                    adipisci. Et cupiditate repellendus omnis. Quos ipsam praesentium ea 
-                    facere repudiandae. Minus ea maiores nemo libero unde saepe ut 
-                    voluptates. Cupiditate ut in voluptatem veritatis sed dolores ex 
-                    eum totam. Et earum et recusandae laboriosam ipsam.
-                    </p>
+                        <div class="form-field">
+                            <input name="cName" id="cName" class="h-full-width h-remove-bottom" placeholder="Your Name" value="" type="text">
+                        </div>
 
-                    <ul class="event-meta">
-                        <li><strong>Age</strong>7-12 Years Old</li>
-                        <li><strong>Cost</strong>150 USD</li>
-                        <li><strong>Date</strong>Saturday, September 28, 2019</li>
-                        <li><strong>Time</strong>8:00AM - 5:30PM</li>
-                        <li><strong>Place</strong>1600 Amphitheatre Parkway, Mt. View</li>
-                    </ul>
+                        <div class="form-field">
+                            <input name="cEmail" id="cEmail" class="h-full-width h-remove-bottom" placeholder="Your Email" value="" type="text">
+                        </div>
 
+                        <div class="form-field">
+                            <input name="cWebsite" id="cWebsite" class="h-full-width h-remove-bottom" placeholder="Website" value="" type="text">
+                        </div>
+
+                        <div class="message form-field">
+                            <textarea name="cMessage" id="cMessage" class="h-full-width h-remove-bottom" placeholder="Your Message"></textarea>
+                        </div>
+
+                        <br>
+
+                        <input name="submit" id="submit" class="btn btn--primary btn-wide btn--large h-full-width" value="Send Message" type="submit">
+
+                    </fieldset>
+                </form>
                 </div> <!-- end event-content -->
 
 
@@ -213,7 +213,7 @@
                 <li><a href="{{ url_for('main.about') }}" title="About">About</a></li>
                 <li><a href="{{ url_for('main.events') }}" title="Services">Events</a></li>
                 <li><a href="{{ url_for('main.contact') }}" title="Contact us">Contact</a></li>	
-                <li class="current"><a href="{{ url_for('main.prayer-requests') }}" title="Prayer Requests">Prayer Requests</a></li>
+                <li class="current"><a href="{{ url_for('main.prayer_requests') }}" title="Prayer Requests">Prayer Requests</a></li>
                         </ul>
                     </div>
                 </div>
