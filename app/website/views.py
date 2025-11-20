@@ -15,10 +15,10 @@ def home():
     return render_template('index.html', event=events)
 
 
-@mainbp.route('/event')
-def events():
-    events = Events.query.all()
-    return render_template('events.html', all_events=events)
+@mainbp.route('/prayer-requests')
+def prayer_requests():
+    return render_template('prayer-requests.html')
+
 
 @mainbp.route('/show-event')
 def single_event():
