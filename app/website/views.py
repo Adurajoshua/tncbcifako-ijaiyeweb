@@ -25,6 +25,11 @@ def single_event():
     return render_template('events-single.html')
 
 
+@mainbp.route('/events')
+def events():
+    return render_template('events.html')
+
+
 @mainbp.route('/about')
 def about():
     return render_template('about.html')
