@@ -12,7 +12,7 @@ mainbp = Blueprint('main', __name__)
 @mainbp.route('/')
 def home():
     events = Events.query.all()
-    return render_template('index.html', event=events)
+    return render_template('index.html', all_events=events)
 
 
 @mainbp.route('/prayer-request')
@@ -28,7 +28,7 @@ def single_event():
 @mainbp.route('/events')
 def events():
     events = Events.query.all()
-    return render_template('events.html', events=events)
+    return render_template('events.html', all_events=events)
 
 
 @mainbp.route('/about')
