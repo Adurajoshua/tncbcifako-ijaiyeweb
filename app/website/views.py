@@ -15,9 +15,9 @@ def home():
     return render_template('index.html', event=events)
 
 
-@mainbp.route('/prayer-requests')
+@mainbp.route('/prayer-request')
 def prayer_requests():
-    return render_template('prayer-requests.html')
+    return render_template('prayer_requests.html')
 
 
 @mainbp.route('/show-event')
