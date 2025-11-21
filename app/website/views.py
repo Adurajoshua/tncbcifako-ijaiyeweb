@@ -27,7 +27,8 @@ def single_event():
 
 @mainbp.route('/events')
 def events():
-    return render_template('events.html')
+    events = Events.query.all()
+    return render_template('events.html', events=events)
 
 
 @mainbp.route('/about')
