@@ -5,6 +5,8 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin, login_user, LoginManager, login_required, current_user, logout_user
 from app.website import db
 from sqlalchemy import or_
+import os
+import requests
 
 # Create main blueprint
 mainbp = Blueprint('main', __name__)
@@ -139,3 +141,29 @@ def logout():
     logout_user()
     flash("You have successfully logged out!", 'success')
     return redirect(url_for('main.login'))
+
+
+# ---------------------------- API -------------------------------------#
+@mainbp.route('/api/livestream-status')
+def livestream_status():
+    channel_id = "UCACyJw_Amn34mmY3DP0gIsw"
+    api_key = os.environ.get('YOUTUBE_API_KEY')
+    
+    try:
+        response = requests.get(
+            f"https://www.googleapis.com/youtube/v3/search",
+            params={
+                'part': 'snippet',
+                'channelId': channel_id,
+                'type': 'video',
+                'eventType': 'live',
+                'key': api_key
+            }
+        )
+        data = response.json()
+        
+        if data.get('items') and len(data['items']) > 0:
+            return {'live': True, 'videoId': data['items'][0]['id']['videoId']}
+        return {'live': False}
+    except:
+        return {'live': False}
