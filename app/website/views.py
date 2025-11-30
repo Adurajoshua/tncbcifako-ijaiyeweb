@@ -7,6 +7,8 @@ from app.website import db
 from sqlalchemy import or_
 import os
 import requests
+from dotenv import load_dotenv
+load_dotenv()
 
 # Create main blueprint
 mainbp = Blueprint('main', __name__)
