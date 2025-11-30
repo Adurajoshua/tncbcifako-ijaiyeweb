@@ -1,14 +1,19 @@
-from flask import Blueprint, render_template, request, redirect, url_for, flash
+from flask import Blueprint, render_template, request, redirect, url_for, flash, jsonify, current_app
 from app.website.models import Events, User
 from app.website.forms import EventForm, LoginForm, RegisterForm
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin, login_user, LoginManager, login_required, current_user, logout_user
+from flask_mail import Message
 from app.website import db
+from app.website import mail
 from sqlalchemy import or_
 import os
+import time
 import requests
 from dotenv import load_dotenv
 load_dotenv()
+
+livestream_cache = {'data': None, 'timestamp': 0}
 
 # Create main blueprint
 mainbp = Blueprint('main', __name__)
@@ -146,14 +151,22 @@ def logout():
 
 
 # ---------------------------- API -------------------------------------#
+
 @mainbp.route('/api/livestream-status')
 def livestream_status():
+    global livestream_cache
+    
+    # Return cached result if less than 5 minutes old
+    if livestream_cache['data'] and (time.time() - livestream_cache['timestamp']) < 900:
+        print("Returning cached livestream status")
+        return livestream_cache['data']
+    
     channel_id = "UCACyJw_Amn34mmY3DP0gIsw"
     api_key = os.environ.get('YOUTUBE_API_KEY')
     
     try:
         response = requests.get(
-            f"https://www.googleapis.com/youtube/v3/search",
+            "https://www.googleapis.com/youtube/v3/search",
             params={
                 'part': 'snippet',
                 'channelId': channel_id,
@@ -163,9 +176,69 @@ def livestream_status():
             }
         )
         data = response.json()
+        print(f"YouTube API response: {data}")
         
         if data.get('items') and len(data['items']) > 0:
-            return {'live': True, 'videoId': data['items'][0]['id']['videoId']}
+            result = {'live': True, 'videoId': data['items'][0]['id']['videoId']}
+        else:
+            if data.get('error'):
+                print(f"YouTube API error: {data['error']}")
+            result = {'live': False}
+        
+        # Cache the result
+        livestream_cache = {'data': result, 'timestamp': time.time()}
+        return result
+        
+    except Exception as e:
+        print(f"Livestream check error: {e}")
         return {'live': False}
-    except:
-        return {'live': False}
+
+
+# ---------------------------- MAIL -------------------------------------#
+@mainbp.route('/send-contact', methods=['POST'])
+def send_contact():
+    try:
+        name = request.form.get('cName')
+        email = request.form.get('cEmail')
+        message = request.form.get('cMessage')
+
+        print(f"Mail username: {current_app.config['MAIL_USERNAME']}")
+        print(f"Mail server: {current_app.config['MAIL_SERVER']}")
+        
+        msg = Message(
+            subject=f"Contact Form: Message from {name}",
+            sender=email,
+            recipients=['tncbctv@gmail.com'],
+            reply_to=email,
+            body=f"Name: {name}\nEmail: {email}\n\nMessage: {message}"
+        )
+        mail.send(msg)
+        flash("Your message has been sent successfully!", "success")
+    except Exception as e:
+        print(f"Email error: {e}")
+        flash("Failed to send message. Please try again.", "error")
+    
+    return redirect(url_for('main.contact'))
+
+
+@mainbp.route('/send-prayer-request', methods=['POST'])
+def send_prayer_request():
+    try:
+        name = request.form.get('cName')
+        email = request.form.get('cEmail')
+        message = request.form.get('cMessage')
+        
+        msg = Message(
+            subject=f"Prayer Request from {name}",
+            sender=email,
+            recipients=['tncbctv@gmail.com'],
+            reply_to=email,
+            body=f"Name: {name}\nEmail: {email}\n\nPrayer Request: {message}"
+        )
+        mail.send(msg)
+        flash("Your prayer request has been submitted. We will be praying with you!", "success")
+    except Exception as e:
+        print(f"Email error: {e}")
+        flash("Failed to submit prayer request. Please try again.", "error")
+    
+    return redirect(url_for('main.prayer_requests'))

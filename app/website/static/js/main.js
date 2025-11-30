@@ -136,7 +136,6 @@
     };
     
     checkYouTubeLive();
-    setInterval(checkYouTubeLive, 120000);
 
 
    /* Back to Top
