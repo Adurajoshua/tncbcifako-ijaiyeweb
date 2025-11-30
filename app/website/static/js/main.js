@@ -122,12 +122,13 @@
             
             if (data.live) {
                 document.getElementById("live-box").innerHTML =
-                    `<iframe width="100%" height="500"
-                        src="https://www.youtube.com/embed/${data.videoId}?autoplay=1"
-                        frameborder="0"
-                        allow="autoplay; encrypted-media; picture-in-picture"
-                        allowfullscreen>
-                    </iframe>`;
+                `<iframe 
+                    src="https://www.youtube.com/embed/${data.videoId}?autoplay=1"
+                    frameborder="0"
+                    allow="autoplay; encrypted-media; picture-in-picture"
+                    allowfullscreen
+                    style="width:100%; height:600px; display:block;">
+                </iframe>`;
             }
         } catch (error) {
             console.log("Error checking live status:", error);

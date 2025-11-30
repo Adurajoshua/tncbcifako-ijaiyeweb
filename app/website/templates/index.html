@@ -188,51 +188,31 @@
     </section> <!-- end s-connect -->
 
 
-    <!-- series
+    <!-- series / livestream
     ================================================== -->
-    <section class="s-series">
+    <section class="s-series" id="worship-section">
 
         <div class="series-img" style="background-image: url('images/series-2000.jpg');"></div>
 
-        <div class="row row-y-center series-content" id="worship-section" >
+        <div class="row row-y-center series-content">
 
-            <!-- <div class="column large-half medium-full">
-                <h3 class="subhead">Current Series</h3>
-                <h2>Shape Your Life with the Words of Life.</h2>
-                <p>
-                Aut sed amet et quis aliquid laborum minus consequatur. Animi repellendus quas. 
-                Est voluptates minima ut dolorum aliquid sint. Ratione et et molestias rerum 
-                quibusdam. Deserunt suscipit ut expedita. Non numquam aut eum perferendis 
-                molestiae praesentium aliquid voluptatum numquam dolorum aliquid sint minima.
-                </p>
-            </div> end column -->
-
-            <div class="column large-half medium-full">
+            <div class="column large-full">
+                <h3 class="subhead" style="text-align:center; margin-bottom: 1rem;">Watch Live</h3>
                 <div class="series-content__buttons">
-                    <div id="live-box" style="width:100%; max-width:900px; margin:auto;">
-                    <img id="offline-img" 
-                     src="../static/images/offline.jpg.png" 
-                     alt="We are currently offline"
-                     style="width:100%; height:500px; object-fit:cover; border-radius:10px;">
-                        </div>
+                    <div id="live-box" style="width:100%; max-width:1100px; margin:auto;">
+                        <img id="offline-img" 
+                         src="../static/images/offline.jpg.png" 
+                         alt="We are currently offline"
+                         style="width:100%; height:600px; object-fit:cover; border-radius:10px;">
+                    </div>
 
-
-
-                    <a href="" class="btn btn--large h-full-width">Watch Past Services</a>
+                    <a href="https://www.youtube.com/@TNCBCTV/streams" target="_blank" class="btn btn--large h-full-width" style="margin-top: 1.5rem;">Watch Past Services</a>
                 </div>
 
-                <div class="series-content__subscribe">
+                <div class="series-content__subscribe" style="text-align:center; margin-top: 1rem;">
                     <p>
-                    Never miss a message. Subscribe to our YouTube channel.
+                    Never miss a message. <a href="https://www.youtube.com/@TNCBCTV?sub_confirmation=1" target="_blank" style="color: #fff; text-decoration: underline;">Subscribe to our YouTube channel</a>.
                     </p>
-                    <!--
-                    <ul class="series-content__subscribe-links">
-                        <li class="ss-apple-podcast"><a href="#0">Apple Podcast</a></li>
-                        <li class="ss-spotify"><a href="#0">Spotify</a></li>
-                        <li class="ss-soundcloud"><a href="#0">SoundCloud</a></li>
-                        <li class="ss-youtube"><a href="#0">Youtube</a></li>
-                    </ul>
-                    -->
                 </div>
             </div> <!-- end column -->
             
@@ -287,7 +267,7 @@
         <div class="row footer-top">
             <div class="column large-4 medium-5 tab-full">
                 <div class="footer-logo">
-                    <a class="site-footer-logo" href="index.html">
+                    <a class="site-footer-logo" href="{{ url_for('main.home') }}">
                         <img src="../static/images/logo.png" alt="Homepage">
                     </a>
                 </div>  <!-- footer-logo -->

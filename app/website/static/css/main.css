@@ -3628,3 +3628,9 @@ html.no-csstransitions .hero-content {
   margin: 1.5rem 0;
   letter-spacing: 0.3px;
 }
+
+/* #live-box iframe {
+  width: 100%;
+  height: 600px;
+  min-height: 500px;
+} */

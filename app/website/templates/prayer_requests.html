@@ -5,8 +5,8 @@
     <!--- basic page needs
     ================================================== -->
     <meta charset="utf-8">
-    <title>Hesed - Events Single</title>
-    <meta name="description" content="">
+    <title>TNCBC Ifako-Ijaiye - Prayer Requests</title>
+    <meta name="description" content="Submit your prayer request and let's join you in prayers.">
     <meta name="author" content="">
 
     <!-- mobile specific metas
@@ -49,8 +49,8 @@
     <header class="s-header">
 
         <div class="header-logo">
-            <a class="site-logo" href="index.html">
-                <img src="images/logo.svg" alt="Homepage">
+            <a class="site-logo" href="{{ url_for('main.home') }}">
+                <img src="../static/images/logo.png" alt="Homepage">
             </a>
         </div>
 
@@ -164,7 +164,7 @@
                         </a>
                     </li>
                     <li class="social-list__item">
-                        <a href="#0" title="">
+                        <a href="mailto:sectncbc@yahoo.com" title="">
                             <span class="social-list__icon social-list__icon--email"></span>
                             <span class="social-list__text">Email</span>
                         </a>
@@ -183,8 +183,8 @@
         <div class="row footer-top">
             <div class="column large-4 medium-5 tab-full">
                 <div class="footer-logo">
-                    <a class="site-footer-logo" href="index.html">
-                        <img src="images/logo.svg" alt="Homepage">
+                    <a class="site-footer-logo" href="{{ url_for('main.home') }}">
+                        <img src="../static/images/logo.png" alt="Homepage">
                     </a>
                 </div>  <!-- footer-logo -->
                 <p style="text-align: justify">
