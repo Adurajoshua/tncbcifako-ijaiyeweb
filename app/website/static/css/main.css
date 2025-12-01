@@ -1875,7 +1875,7 @@ input::-moz-focus-inner {
 /* ------------------------------------------------------------------- 
  * ## mobile menu toggle
  * ------------------------------------------------------------------- */
-.header-menu-toggle {
+/*.header-menu-toggle {
   z-index: 102;
   display: none;
   height: 4.2rem;
@@ -1952,6 +1952,87 @@ input::-moz-focus-inner {
 .header-menu-toggle.is-clicked span::after {
   bottom: 0;
   -webkit-transform: rotate(225deg);
+  transform: rotate(225deg);
+}*/
+
+
+
+/* ================================
+   MOBILE MENU TOGGLE (HAMBURGER)
+   ================================ */
+.header-menu-toggle {
+  position: absolute;
+  right: 32px;
+  top: 1rem;
+  height: 4.2rem;
+  width: 4.2rem;
+  line-height: 4.2rem;
+  display: none;
+  z-index: 102;
+  font-family: "Lora", serif;
+  font-size: 1.4rem;
+  letter-spacing: 0.2rem;
+  text-transform: uppercase;
+  color: #000;                 /* Toggle text/icon = BLACK on white header */
+  transition: all .3s;
+}
+
+/* Hover effect */
+.header-menu-toggle:hover,
+.header-menu-toggle:focus {
+  color: #000;
+}
+
+/* The 3 hamburger lines */
+.header-menu-toggle span {
+  position: absolute;
+  top: 50%;
+  left: 0.9rem;
+  width: 2.4rem;
+  height: 2px;
+  margin-top: -1px;
+  background-color: #000;       /* DEFAULT = BLACK lines */
+  transition: all .5s;
+}
+
+.header-menu-toggle span::before,
+.header-menu-toggle span::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: inherit;    /* Matches the main line colour */
+  transition: all .5s;
+}
+
+/* Top & bottom lines spacing */
+.header-menu-toggle span::before { top: -0.9rem; }
+.header-menu-toggle span::after  { bottom: -0.9rem; }
+
+/* ================================
+   WHEN MENU IS OPEN (.is-clicked)
+   ================================ */
+
+/* Middle line disappears */
+.header-menu-toggle.is-clicked span {
+  background-color: transparent;
+  transition: all .1s;
+}
+
+/* Top & bottom lines turn WHITE and rotate into an X */
+.header-menu-toggle.is-clicked span::before,
+.header-menu-toggle.is-clicked span::after {
+  background-color: #fff;       /* WHITE lines on black header */
+}
+
+.header-menu-toggle.is-clicked span::before {
+  top: 0;
+  transform: rotate(135deg);
+}
+
+.header-menu-toggle.is-clicked span::after {
+  bottom: 0;
   transform: rotate(225deg);
 }
 
@@ -3388,6 +3469,7 @@ html.no-csstransitions .hero-content {
   background-image: url(../images/DJI_0323.JPG);
 }
 
+
 .page-header--events {
   background-image: url(../images/IMG_5522.JPG);
 }
@@ -3402,6 +3484,95 @@ html.no-csstransitions .hero-content {
 
 .page-header__content {
   position: relative;
+}
+
+/* ===================================================================
+ * Contact Page Styles - contact.css
+ *
+ * ------------------------------------------------------------------- */
+
+.contact-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 4rem 0;
+    padding: 0 2rem;
+}
+
+.contact-card {
+    background: white;
+    border-radius: 12px;
+    padding: 3rem 2rem;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+.contact-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 1.5rem;
+    fill: #ff6b35;
+}
+
+.contact-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+.contact-card p {
+    color: #666;
+    line-height: 1.8;
+    margin: 0.5rem 0;
+}
+
+.contact-card a {
+    color: #ff6b35;
+    text-decoration: none;
+}
+
+.contact-card a:hover {
+    text-decoration: underline;
+}
+
+.contact-header {
+    text-align: center;
+    padding: 4rem 2rem 2rem;
+}
+
+.contact-header h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.contact-header p {
+    font-size: 1.2rem;
+    color: #666;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Mobile Responsive */
+@media screen and (max-width: 768px) {
+    .contact-cards {
+        grid-template-columns: 1fr;
+        padding: 0 1rem;
+    }
+    
+    .contact-header h1 {
+        font-size: 2rem;
+    }
+    
+    .contact-header p {
+        font-size: 1rem;
+    }
 }
 
 /* ------------------------------------------------------------------- 
