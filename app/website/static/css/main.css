@@ -3491,72 +3491,86 @@ html.no-csstransitions .hero-content {
  *
  * ------------------------------------------------------------------- */
 
+.page-content {
+    background: linear-gradient(135deg, #4169E1 0%, #1E90FF 100%);
+    min-height: 70vh;
+    padding: 4rem 0 6rem;
+}
+
+.contact-header {
+    text-align: center;
+    padding: 2rem 2rem 3rem;
+}
+
+.contact-header h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #1a1a1a;
+    letter-spacing: -1px;
+}
+
+.contact-header p {
+    font-size: 1.1rem;
+    color: #2d2d2d;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
 .contact-cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin: 4rem 0;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
     padding: 0 2rem;
 }
 
 .contact-card {
     background: white;
-    border-radius: 12px;
-    padding: 3rem 2rem;
+    border-radius: 16px;
+    padding: 3.5rem 2.5rem;
     text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .contact-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
 }
 
 .contact-icon {
-    width: 60px;
-    height: 60px;
-    margin: 0 auto 1.5rem;
-    fill: #ff6b35;
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 2rem;
+    fill: #FF4444;
 }
 
 .contact-card h3 {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
+    font-weight: 600;
     margin-bottom: 1.5rem;
-    color: #333;
+    color: #1a1a1a;
 }
 
 .contact-card p {
-    color: #666;
+    color: #555;
     line-height: 1.8;
     margin: 0.5rem 0;
+    font-size: 0.95rem;
 }
 
 .contact-card a {
-    color: #ff6b35;
+    color: #FF4444;
     text-decoration: none;
+    font-weight: 500;
 }
 
 .contact-card a:hover {
+    color: #cc0000;
     text-decoration: underline;
-}
-
-.contact-header {
-    text-align: center;
-    padding: 4rem 2rem 2rem;
-}
-
-.contact-header h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    color: #333;
-}
-
-.contact-header p {
-    font-size: 1.2rem;
-    color: #666;
-    max-width: 700px;
-    margin: 0 auto;
 }
 
 /* Mobile Responsive */
